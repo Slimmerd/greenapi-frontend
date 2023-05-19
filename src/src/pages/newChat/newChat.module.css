@@ -1,0 +1,48 @@
+.main {
+    padding: 15px;
+    height: 100%;
+    background-color: #F0F2F5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    min-width: 200px;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    background-color: #F5F6F6;
+    border-radius: 10px;
+
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
+
+.info h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+
+    background-color: #25d366;
+
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.button:active {
+    background-color: #1da650;
+}

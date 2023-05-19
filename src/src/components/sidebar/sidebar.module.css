@@ -1,0 +1,49 @@
+.main {
+    flex: 0 0 30%;
+    max-width: 30%;
+    height: 100%;
+    position: relative;
+    background-color: #FFF;
+
+    border-right: #e9edef 1px solid;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F0F2F5;
+
+    padding: 10px 10px;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #54656F;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 100%;
+    color: #54656F;
+    background-color: #F0F2F5;
+}
+
+.button:hover {
+    color: #FFFFFF;
+    background-color: #25d366;
+}
+
+.chats{
+
+}

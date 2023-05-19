@@ -1,0 +1,27 @@
+.main{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    border-bottom: #e9edef 1px solid;
+}
+
+.main input {
+    width: 100%;
+    padding: 10px;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.main input:focus {
+    border: none;
+    outline: none;
+
+    background-color: #F5F6F6;
+}
+
+.icon {
+    color: #54656F;
+    margin-right: 5px;
+}
