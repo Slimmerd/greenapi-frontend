@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 
 export const login = createAsyncThunk(
     "profile/login",
-    async ({IdInstance, ApiTokenInstance}: { IdInstance: string, ApiTokenInstance: string }, thunkAPI) => {
+    async ({IdInstance, ApiTokenInstance}: { IdInstance: string, ApiTokenInstance: string }) => {
         await localStorage.setItem('IdInstance', IdInstance)
         await localStorage.setItem('ApiTokenInstance', ApiTokenInstance)
 
@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
 
 export const loadProfile = createAsyncThunk(
     "profile/load",
-    async ( thunkAPI) => {
+    async ( ) => {
         const IdInstance= await localStorage.getItem('IdInstance')
         const ApiTokenInstance = await localStorage.getItem('ApiTokenInstance')
 
@@ -26,7 +26,7 @@ export const loadProfile = createAsyncThunk(
 
 export const logout = createAsyncThunk(
     "profile/logout",
-    async ( thunkAPI) => {
+    async ( ) => {
         await localStorage.clear()
         return true;
     }
