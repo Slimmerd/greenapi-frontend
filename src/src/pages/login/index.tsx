@@ -2,8 +2,15 @@ import React from 'react';
 import styles from './login.module.css'
 import InputField from "../../components/form/input-field/inputField";
 import {Formik} from "formik";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../redux/store";
+import {login} from "../../redux/thunks/profileThunk";
+import {useNavigate} from "react-router-dom";
 
 const LoginPage = () => {
+    const dispatch = useDispatch<AppDispatch>()
+    const navigate = useNavigate()
+
     return (
         <div className={styles.main}>
             <h1 className={styles.title}>Авторизация</h1>
@@ -18,22 +25,20 @@ const LoginPage = () => {
                 // validationSchema={}
                 onSubmit={async (values) => {
 
-                    // dispatch(
-                    //     login({email: values.email, password: values.password})
-                    // ).then((res) => {
-                    //     if (res.payload !== undefined) {
-                    //         router.replace("/feed");
-                    //     } else {
-                    //         setError(true);
-                    //     }
-                    // });
+                    dispatch(
+                        login({IdInstance: values.IdInstance, ApiTokenInstance: values.ApiTokenInstance})
+                    ).then((res) => {
+                        if (res.payload !== undefined) {
+                            navigate("/")
+                        }
+                    });
                 }}
             >
                 {({isSubmitting, handleSubmit}) => (
                     <form action="" className={styles.form} onSubmit={handleSubmit}>
                         <InputField label={'ID Instance'} name={'IdInstance'} placeholder={''}/>
                         <InputField label={'API Token Instance'} name={'ApiTokenInstance'} placeholder={''}/>
-                        <button type={'submit'} className={styles.button}>Войти</button>
+                        <button type={'submit'} className={styles.button} disabled={isSubmitting}>Войти</button>
                     </form>
                 )}
             </Formik>

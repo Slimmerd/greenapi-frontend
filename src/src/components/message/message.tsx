@@ -1,22 +1,21 @@
 import React from 'react';
 import styles from './message.module.css'
+import {ReceiveNotificationT} from "../../types/ReceiveNotificationT";
+import dayjs from "dayjs";
 
-type MessageType = {
-    author: number
-    content: string
-    date: Date
-}
+const Message = ({message}: { message: ReceiveNotificationT }) => {
+    const date = dayjs(message?.body.timestamp ?? Date.now()).format('HH:mm DD.MM')
 
-const Message = ({message}: { message?: MessageType }) => {
-    let inbound = false
     return (
-        <div className={`${styles.main} ${inbound ? styles.in : styles.out}`}>
+        <div className={`${styles.main} ${message?.receiptId !== undefined ? styles.in : styles.out}`}>
 
             {/*<TailIn/>*/}
             <div className={styles.msgBlock}>
-                <span className={styles.content}>Content fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfsfdsffdsfsfdsffdsfs vfdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs  fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfs fdsffdsfsfdsffdsfsfdsffdsfsfdsffdsfs fdsffdsfs</span>
+                <span className={styles.content}>
+                    {message?.body.messageData.textMessageData.textMessage}
+                </span>
                 <div className={styles.date}>
-                    <span>Date</span>
+                    <span>{date}</span>
                 </div>
             </div>
             {/*<TailOut/>*/}

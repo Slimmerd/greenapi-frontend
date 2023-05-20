@@ -2,8 +2,14 @@ import React from 'react';
 import styles from './newChat.module.css'
 import InputField from "../../components/form/input-field/inputField";
 import {Formik} from "formik";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../redux/store";
+import {startChat} from "../../redux/thunks/chatsThunk";
+import {useNavigate} from "react-router-dom";
 
 const NewChatPage = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch<AppDispatch>()
     return (
         <div className={styles.main}>
             <div className={styles.info}>
@@ -13,16 +19,14 @@ const NewChatPage = () => {
                     validateOnChange={true}
                     // validationSchema={}
                     onSubmit={async (values) => {
-
-                        // dispatch(
-                        //     login({email: values.email, password: values.password})
-                        // ).then((res) => {
-                        //     if (res.payload !== undefined) {
-                        //         router.replace("/feed");
-                        //     } else {
-                        //         setError(true);
-                        //     }
-                        // });
+                        const chatId = values.phone.replace('+', '') + '@c.us'
+                        dispatch(
+                            startChat({chatId: chatId})
+                        ).then((res) => {
+                            if (res.payload !== undefined) {
+                                navigate(`/chat/${chatId}`);
+                            }
+                        });
                     }}
                 >
                     {({isSubmitting, handleSubmit}) => (

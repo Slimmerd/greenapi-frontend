@@ -34,6 +34,8 @@
 .chat {
     height: 100%;
     background-color: #EFEAE2;
+
+    overflow-y: scroll;
 }
 
 .chat--self {
