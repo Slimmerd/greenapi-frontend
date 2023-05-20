@@ -1,16 +1,6 @@
 import React from 'react';
 import styles from './authorized.module.css'
-import useIsAuth from "../../utils/useIsAuth";
-
 const AuthorizedPage = () => {
-
-    // if (!useIsAuth()){
-    //     return (
-    //         <>
-    //             Loading...
-    //         </>
-    //     )
-    // }
 
     return (
         <div className={styles.main}>

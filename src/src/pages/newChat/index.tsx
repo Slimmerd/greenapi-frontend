@@ -32,7 +32,7 @@ const NewChatPage = () => {
                     {({isSubmitting, handleSubmit}) => (
                         <form action="" className={styles.form} onSubmit={handleSubmit}>
                             <InputField label={'Телефон'} name={'phone'} placeholder={''}/>
-                            <button type={'submit'} className={styles.button}>Создать</button>
+                            <button type={'submit'} className={styles.button} disabled={isSubmitting}>Создать</button>
                         </form>
                     )}
                 </Formik>
